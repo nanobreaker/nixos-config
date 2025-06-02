@@ -21,7 +21,7 @@
     fenix.url = "github:nix-community/fenix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, ... }:
     let inherit (self) outputs;
     in {
       nixosConfigurations = {

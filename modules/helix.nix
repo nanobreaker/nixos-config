@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-let inherit (lib) enabled;
-in {
+{ config, lib, pkgs, ... }: {
   environment = {
     variables.EDITOR = "hx";
     shellAliases.x = "hx";
@@ -26,16 +24,9 @@ in {
 
   home-manager.sharedModules = [{
 
-    programs.helix = enabled {
-      languages.language-server.rust-analyzer = {
-        config = {
-          cargo.features = "all";
-          check.command = "clippy";
-        };
-      };
-
+    programs.helix = {
+      enable = true;
       settings.theme = "github_dark_high_contrast";
-
       settings.editor = {
         auto-completion = false;
         bufferline = "multiple";
