@@ -13,11 +13,13 @@
     ../../modules/btop.nix
     ../../modules/fonts.nix
     ../../modules/ghostty.nix
+    ../../modules/gtk.nix
     ../../modules/git.nix
     ../../modules/helix.nix
     ../../modules/home-manager.nix
     ../../modules/hyprland.nix
     ../../modules/localisation.nix
+    ../../modules/nushell.nix
     ../../modules/networking.nix
     ../../modules/pipewire.nix
     ../../modules/time.nix
@@ -29,13 +31,29 @@
   nix.settings.experimental-features =
     [ "nix-command" "flakes" "pipe-operators" ];
 
+  nixpkgs.config.allowUnfree = true;
+
   users.users.nanobreaker = {
     isNormalUser = true;
     name = "nanobreaker";
     home = "/home/nanobreaker";
     extraGroups = [ "networkmanager" "wheel" "audio" "input" "dialout" ];
+    shell = pkgs.nushell;
   };
 
-  system.stateVersion = "25.05";
+  programs.hyprland.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    nil
+    nixd
+    nixfmt-classic
+    google-chrome
+    qFlipper
+    gfn-electron
+    discord
+    telegram-desktop
+    jetbrains.idea-ultimate
+  ];
+
+  system.stateVersion = "25.05";
 }

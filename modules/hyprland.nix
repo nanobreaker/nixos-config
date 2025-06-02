@@ -1,4 +1,8 @@
 { config, lib, pkgs, ... }: {
+  hardware.graphics = {
+    enable = true;
+  };
+
   xdg.portal = {
     enable = true;
     config.common.default = "*";
@@ -6,14 +10,28 @@
     configPackages = [ pkgs.hyprland ];
   };
 
-  programs.xwayland = { enable = true; };
+  environment.systemPackages = with pkgs; [
+    kitty
+    wofi
+    hyprcursor
+    hyprpicker
+    hyprpaper
+    grimblast
+    wf-recorder
+    wl-clipboard
+  ];
 
   home-manager.sharedModules = [{
     wayland.windowManager.hyprland = {
       enable = true;
+
       systemd = {
         enable = true;
         enableXdgAutostart = true;
+      };
+
+      xwayland ={
+        enable = true;
       };
 
       settings = {
