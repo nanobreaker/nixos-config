@@ -21,22 +21,16 @@
     fenix.url = "github:nix-community/fenix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/x86_64-nixos/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.nanobreaker = ./hosts/x86_64-nixos/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-          }
-        ];
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+    let inherit (self) outputs;
+    in {
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/x86_64-nixos/configuration.nix ];
+        };
       };
-    };
 
-  };
+    };
 }
