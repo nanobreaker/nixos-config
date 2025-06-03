@@ -3,13 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.backupFileExtension = "bkp";
-      home-manager.users.nanobreaker = import ./home.nix;
-    }
+    ../../modules/home-manager.nix
     ../../modules/anyrun.nix
     ../../modules/boot.nix
     ../../modules/btop.nix
@@ -34,6 +28,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.hyprland.enable = true;
+
   users.users.nanobreaker = {
     isNormalUser = true;
     name = "nanobreaker";
@@ -42,7 +38,10 @@
     shell = pkgs.nushell;
   };
 
-  programs.hyprland.enable = true;
+  home-manager.users.nanobreaker.home = {
+    homeDirectory = "/home/nanobreaker";
+    stateVersion = "25.05";
+  };
 
   environment.systemPackages = [
     inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins

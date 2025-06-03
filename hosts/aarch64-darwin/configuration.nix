@@ -3,13 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.darwinModules.home-manager
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.backupFileExtension = "bkp";
-      home-manager.users.nanobreaker = import ./home.nix;
-    }
+    ../../modules/home-manager.nix
     ../../modules/ghostty.nix
   ];
 
@@ -18,6 +12,11 @@
   users.users.nanobreaker = {
     name = "nanobreaker";
     home = "/Home/nanobreaker";
+  };
+
+  home-manager.users.nanobreaker.home = {
+    homeDirectory = "/Users/nanobreaker";
+    stateVersion = "25.05";
   };
 
   system.stateVersion = 6;
