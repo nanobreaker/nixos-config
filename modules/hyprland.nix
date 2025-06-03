@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }: {
-  hardware.graphics = {
-    enable = true;
-  };
+  hardware.graphics = { enable = true; };
 
   xdg.portal = {
     enable = true;
@@ -12,7 +10,6 @@
 
   environment.systemPackages = with pkgs; [
     kitty
-    wofi
     hyprcursor
     hyprpicker
     hyprpaper
@@ -30,16 +27,13 @@
         enableXdgAutostart = true;
       };
 
-      xwayland ={
-        enable = true;
-      };
+      xwayland = { enable = true; };
 
       settings = {
         monitor =
           [ "eDP-1, 1920x1080@60, 0x0, 1" "DP-3, 2560x1440@144, 1920x0, 1" ];
 
         workspace = [
-          "1, monitor: DP-3"
           "1, monitor: DP-3"
           "2, monitor: DP-3"
           "3, monitor: DP-3"
@@ -70,15 +64,9 @@
 
           active_opacity = 1.0;
           inactive_opacity = 1.0;
-
-          shadow.enabled = false;
-          blue.enabled = false;
         };
 
-        dwindle = {
-          pseudotle = true;
-          preserve_split = true;
-        };
+        dwindle = { preserve_split = true; };
 
         misc = {
           force_default_wallpaper = -1;
@@ -97,10 +85,10 @@
           "SUPER, M, exit,"
           "SUPER, E, exec, $fileManager"
           "SUPER, V, togglefloating,"
-          "SUPER, D, exec, $menu"
+          "SUPER, D, exec, pkill anyrun || anyrun"
           "SUPER, P, pseudo, # dwindle"
           "SUPER, J, togglesplit, # dwindle"
-          "SUPER, return, exec, $terminal"
+          "SUPER, return, exec, ghostty"
           "SUPER SHIFT, Q, killactive,"
           "SUPER SHIFT, C, exec, pkill waybar && hyprctl dispatch exec waybar"
           "SUPER SHIFT, S, exec, grimblast copy area"

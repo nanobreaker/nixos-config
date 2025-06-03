@@ -30,7 +30,7 @@
       settings.editor = {
         auto-completion = false;
         bufferline = "multiple";
-        color-modes = true;
+        color-modes = false;
         cursorline = true;
         file-picker.hidden = false;
         idle-timeout = 0;
@@ -52,11 +52,11 @@
 
       settings.editor.indent-guides = {
         character = "▏";
-        render = true;
+        render = false;
       };
 
       settings.editor.whitespace = {
-        characters.tab = "→";
+        characters.tab = "·";
         render.tab = "all";
       };
     };

@@ -7,8 +7,10 @@
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
+      home-manager.backupFileExtension = "bkp";
       home-manager.users.nanobreaker = import ./home.nix;
     }
+    ../../modules/anyrun.nix
     ../../modules/boot.nix
     ../../modules/btop.nix
     ../../modules/fonts.nix
@@ -16,7 +18,6 @@
     ../../modules/gtk.nix
     ../../modules/git.nix
     ../../modules/helix.nix
-    ../../modules/home-manager.nix
     ../../modules/hyprland.nix
     ../../modules/localisation.nix
     ../../modules/nushell.nix
@@ -43,16 +44,17 @@
 
   programs.hyprland.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    nil
-    nixd
-    nixfmt-classic
-    google-chrome
-    qFlipper
-    gfn-electron
-    discord
-    telegram-desktop
-    jetbrains.idea-ultimate
+  environment.systemPackages = [
+    inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins
+    pkgs.nil
+    pkgs.nixd
+    pkgs.nixfmt-classic
+    pkgs.google-chrome
+    pkgs.qFlipper
+    pkgs.gfn-electron
+    pkgs.discord
+    pkgs.telegram-desktop
+    pkgs.jetbrains.idea-ultimate
   ];
 
   system.stateVersion = "25.05";
