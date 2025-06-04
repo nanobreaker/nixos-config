@@ -47,23 +47,26 @@
           "8, monitor: eDP-1"
         ];
 
-        exec-once = [ "waybar" "hyprpaper" ];
+        exec-once = [ "pkill waybar; waybar &" "hyprpaper" ];
 
         general = {
           gaps_in = 0;
           gaps_out = 0;
 
-          border_size = 2;
+          border_size = 1;
 
-          "col.active_border" = "rgb(e7c547)";
+          "col.active_border" = "rgb(818181)";
           "col.inactive_border" = "rgb(000000)";
 
           resize_on_border = true;
         };
 
         decoration = {
-          rounding = 0;
-          rounding_power = 2;
+          rounding = 4;
+          rounding_power = 4;
+
+          dim_inactive = true;
+          dim_strength = 0.2;
 
           active_opacity = 1.0;
           inactive_opacity = 1.0;
