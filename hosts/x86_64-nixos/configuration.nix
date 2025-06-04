@@ -3,32 +3,30 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/home-manager.nix
-    ../../modules/anyrun.nix
-    ../../modules/boot.nix
-    ../../modules/btop.nix
-    ../../modules/fonts.nix
-    ../../modules/ghostty.nix
-    ../../modules/gtk.nix
-    ../../modules/git.nix
-    ../../modules/helix.nix
-    ../../modules/hyprland.nix
-    ../../modules/localisation.nix
-    ../../modules/nushell.nix
-    ../../modules/networking.nix
-    ../../modules/pipewire.nix
-    ../../modules/time.nix
-    ../../modules/udev.nix
-    ../../modules/waybar.nix
-    ../../modules/xserver.nix
+    ../../modules/common/home-manager.nix
+    ../../modules/common/fonts.nix
+    ../../modules/common/ghostty.nix
+    ../../modules/common/git.nix
+    ../../modules/common/helix.nix
+    ../../modules/common/btop.nix
+    ../../modules/common/nushell.nix
+    ../../modules/linux/anyrun.nix
+    ../../modules/linux/boot.nix
+    ../../modules/linux/gtk.nix
+    ../../modules/linux/hyprland.nix
+    ../../modules/linux/localisation.nix
+    ../../modules/linux/networking.nix
+    ../../modules/linux/pipewire.nix
+    ../../modules/linux/time.nix
+    ../../modules/linux/udev.nix
+    ../../modules/linux/waybar.nix
+    ../../modules/linux/xserver.nix
   ];
 
   nix.settings.experimental-features =
     [ "nix-command" "flakes" "pipe-operators" ];
 
   nixpkgs.config.allowUnfree = true;
-
-  programs.hyprland.enable = true;
 
   users.users.nanobreaker = {
     isNormalUser = true;
@@ -42,19 +40,6 @@
     homeDirectory = "/home/nanobreaker";
     stateVersion = "25.05";
   };
-
-  environment.systemPackages = [
-    inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins
-    pkgs.nil
-    pkgs.nixd
-    pkgs.nixfmt-classic
-    pkgs.google-chrome
-    pkgs.qFlipper
-    pkgs.gfn-electron
-    pkgs.discord
-    pkgs.telegram-desktop
-    pkgs.jetbrains.idea-ultimate
-  ];
 
   system.stateVersion = "25.05";
 }

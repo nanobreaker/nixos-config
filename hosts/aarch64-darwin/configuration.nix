@@ -3,8 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/home-manager.nix
-    ../../modules/ghostty.nix
+    ../../modules/common/home-manager.nix
+    ../../modules/common/ghostty.nix
   ];
 
   networking.hostName = "CI00372133";

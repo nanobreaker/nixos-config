@@ -28,8 +28,9 @@
       enable = true;
       settings.theme = "github_dark_high_contrast";
       settings.editor = {
-        auto-completion = false;
-        bufferline = "multiple";
+        auto-format = true;
+        auto-completion = true;
+        bufferline = "never";
         color-modes = false;
         cursorline = true;
         file-picker.hidden = false;

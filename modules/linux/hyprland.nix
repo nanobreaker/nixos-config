@@ -18,7 +18,10 @@
     wl-clipboard
   ];
 
+  programs.hyprland.enable = true;
+
   home-manager.sharedModules = [{
+
     wayland.windowManager.hyprland = {
       enable = true;
 

@@ -1,4 +1,8 @@
 { config, pkgs, inputs, ... }: {
+
+  environment.systemPackages =
+    [ inputs.anyrun.packages.${pkgs.system}.anyrun-with-all-plugins ];
+
   home-manager.sharedModules = [{
     programs.anyrun = {
       enable = true;
