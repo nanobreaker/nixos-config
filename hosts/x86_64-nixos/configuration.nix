@@ -14,7 +14,11 @@
     ../../modules/linux/anyrun.nix
     ../../modules/linux/boot.nix
     ../../modules/linux/gtk.nix
+    ../../modules/linux/tuigreet.nix
     ../../modules/linux/hyprland.nix
+    ../../modules/linux/hypridle.nix
+    ../../modules/linux/hyprlock.nix
+    ../../modules/linux/hyprpaper.nix
     ../../modules/linux/localisation.nix
     ../../modules/linux/networking.nix
     ../../modules/linux/pipewire.nix

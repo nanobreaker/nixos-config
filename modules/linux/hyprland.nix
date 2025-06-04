@@ -47,8 +47,6 @@
           "8, monitor: eDP-1"
         ];
 
-        exec-once = [ "pkill waybar; waybar &" "hyprpaper" ];
-
         general = {
           gaps_in = 0;
           gaps_out = 0;
@@ -98,6 +96,7 @@
           "SUPER SHIFT, Q, killactive,"
           "SUPER SHIFT, C, exec, pkill waybar && hyprctl dispatch exec waybar"
           "SUPER SHIFT, S, exec, grimblast copy area"
+          "SUPER SHIFT, L, exec, hyprlock"
 
           "SUPER, left, movefocus, l"
           "SUPER, right, movefocus, r"

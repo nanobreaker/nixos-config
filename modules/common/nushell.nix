@@ -8,6 +8,7 @@
         $env.config.table.mode = 'none'
 
         $env.PROMPT_INDICATOR = " |> "
+        $env.PROMPT_COMMAND_RIGHT = ""
         $env.PROMPT_COMMAND = {
           let path = ($env.PWD | path split)
           let prompt = (
