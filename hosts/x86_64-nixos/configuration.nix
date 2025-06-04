@@ -10,6 +10,7 @@
     ../../modules/common/helix.nix
     ../../modules/common/btop.nix
     ../../modules/common/nushell.nix
+    ../../modules/linux/packages.nix
     ../../modules/linux/anyrun.nix
     ../../modules/linux/boot.nix
     ../../modules/linux/gtk.nix
