@@ -23,7 +23,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    fenix.url = "github:nix-community/fenix";
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    roc.url = "github:roc-lang/roc";
   };
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, ... }:

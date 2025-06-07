@@ -32,7 +32,7 @@
       };
 
       extraCss = ''
-               * {
+        * {
           all: unset;
           font-size: 1.2rem;
         }

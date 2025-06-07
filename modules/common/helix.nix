@@ -4,29 +4,25 @@
     shellAliases.x = "hx";
   };
 
-  nixpkgs.overlays = [
-    (self: super: {
-      helix = super.helix.overrideAttrs (old: {
-        src = self.fetchzip {
-          url =
-            "https://github.com/cull-os/helix/releases/download/ci-release-25.01.1/helix-ci-release-25.01.1-source.tar.xz";
-          hash = "sha256-bvlzXRAdPvz8P49KENSw9gupQNaUm/+3eZZ1q7+fTsw=";
-          stripRoot = false;
-        };
-
-        cargoDeps = self.rustPlatform.fetchCargoVendor {
-          inherit (self.helix) src;
-          hash = "sha256-soOnSRvWO7OzxYENFUBGmgSAk1Oy9Av+wDDLKkcuIbs=";
-        };
-      });
-    })
+  environment.systemPackages = with pkgs; [
+    vscode-langservers-extracted
+    markdown-oxide
+    nixfmt-rfc-style
+    nil
+    rust-analyzer-nightly
+    lldb
+    yaml-language-server
+    zls
+    jdt-language-server
   ];
 
   home-manager.sharedModules = [{
 
     programs.helix = {
       enable = true;
+
       settings.theme = "github_dark_high_contrast";
+
       settings.editor = {
         auto-format = true;
         auto-completion = true;
@@ -59,6 +55,76 @@
       settings.editor.whitespace = {
         characters.tab = "·";
         render.tab = "all";
+      };
+
+      languages = {
+        language-server = {
+          rust-analyzer = {
+            config = {
+              cargo.features = "all";
+              check.command = "clippy";
+              completion.callable.snippets = "add_parentheses";
+            };
+          };
+          roc-ls = { command = "roc_language_server"; };
+        };
+
+        language = [
+          {
+            name = "rust";
+            auto-format = true;
+          }
+          {
+            name = "java";
+            auto-format = true;
+          }
+          {
+            name = "html";
+            auto-format = true;
+          }
+          {
+            name = "css";
+            auto-format = true;
+          }
+          {
+            name = "markdown";
+            auto-format = true;
+          }
+          {
+            name = "yaml";
+            auto-format = true;
+          }
+          {
+            name = "nix";
+            auto-format = true;
+            formatter.command = "nixfmt";
+          }
+          {
+            name = "roc";
+            scope = "source.roc";
+            injection-regex = "roc";
+            file-types = [ "roc" ];
+            shebangs = [ "roc" ];
+            auto-format = true;
+            comment-token = "#";
+            roots = [ ];
+            indent = {
+              tab-width = 2;
+              unit = "  ";
+            };
+            language-servers = [ "roc-ls" ];
+            formatter.command = "roc";
+            formatter.args = [ "format" "--stdin" "--stdout" ];
+          }
+        ];
+
+        grammar = [{
+          name = "roc";
+          source = {
+            git = "https://github.com/faldor20/tree-sitter-roc.git";
+            rev = "0b1afe88161cbd81f5ddea1bb4fa786314ed49a7";
+          };
+        }];
       };
     };
   }];

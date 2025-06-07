@@ -1,6 +1,8 @@
 { config, inputs, pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
+    clang_16
+    clang-tools_16
     nil
     nixd
     nixfmt-classic
