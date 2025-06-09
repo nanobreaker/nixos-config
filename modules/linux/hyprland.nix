@@ -87,7 +87,7 @@
         bind = [
           "SUPER, F, fullscreen"
           "SUPER, M, exit,"
-          "SUPER, E, exec, $fileManager"
+          "SUPER, E, exec, pcmanfm"
           "SUPER, V, togglefloating,"
           "SUPER, D, exec, pkill anyrun || anyrun"
           "SUPER, P, pseudo, # dwindle"

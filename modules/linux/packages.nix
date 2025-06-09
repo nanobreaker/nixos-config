@@ -1,6 +1,7 @@
 { config, inputs, pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
+    pcmanfm
     clang_16
     clang-tools_16
     nil

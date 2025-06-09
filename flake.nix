@@ -31,14 +31,30 @@
     roc.url = "github:roc-lang/roc";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, ... }:
-    let inherit (self) outputs;
+  outputs = inputs@{ self, nixpkgs, nix-darwin, fenix, ... }:
+    let
+      inherit (self) outputs;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ fenix.overlays.default ];
+      };
+      toolchain = pkgs.fenix.fromToolchainFile {
+        file = ./rust-toolchain.toml;
+        sha256 = "sha256-tJJr8oqX3YD+ohhPK7jlt/7kvKBnBqJVjYtoFr520d4=";
+      };
     in {
+      devShells.${system}.default =
+        pkgs.mkShell { packages = [ toolchain pkgs.probe-rs-tools ]; };
+
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/x86_64-nixos/configuration.nix ];
+          modules = [
+            ./hosts/x86_64-nixos/configuration.nix
+            { nixpkgs.overlays = [ fenix.overlays.default ]; }
+          ];
         };
       };
 

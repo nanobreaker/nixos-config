@@ -13,6 +13,7 @@
     lldb
     yaml-language-server
     zls
+    deno
     jdt-language-server
   ];
 
@@ -87,11 +88,27 @@
             auto-format = true;
           }
           {
+            name = "scss";
+            auto-format = true;
+          }
+          {
+            name = "javascript";
+            auto-format = true;
+          }
+          {
             name = "markdown";
             auto-format = true;
           }
           {
             name = "yaml";
+            auto-format = true;
+          }
+          {
+            name = "json";
+            auto-format = true;
+          }
+          {
+            name = "jsonc";
             auto-format = true;
           }
           {

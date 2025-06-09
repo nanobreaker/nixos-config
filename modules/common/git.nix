@@ -1,4 +1,7 @@
 { self, config, lib, pkgs, ... }: {
+
+  environment.systemPackages = [ pkgs.lazygit ];
+
   home-manager.sharedModules = [{
     programs.git = {
       enable = true;

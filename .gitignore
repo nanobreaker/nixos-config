@@ -1,6 +1,7 @@
 *
 
 !.gitignore
+!rust-toolchain.toml
 
 !docs/
 
