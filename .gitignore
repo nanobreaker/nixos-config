@@ -4,6 +4,9 @@
 !rust-toolchain.toml
 
 !docs/
+!docs/README.md
+!docs/LICENSE.md
+!docs/screnshot_01.png
 
 !assets/
 !assets/**/
@@ -24,3 +27,4 @@
 !*.nix
 !*.nu
 !*.txt
+!*.png

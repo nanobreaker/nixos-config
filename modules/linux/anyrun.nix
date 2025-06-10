@@ -32,32 +32,48 @@
       };
 
       extraCss = ''
+        @define-color foreground #ffffff;
+        @define-color background #0a0c10;
+
         * {
           all: unset;
           font-size: 1.2rem;
         }
 
-        #window,
+        #window {
+          background: transparent;
+        }
+
         #match,
         #entry,
         #plugin,
-        #main { background: transparent; }
+        #main {
+          color: @foreground;
+          background: @background;
+        }
 
         #match.activatable {
+          color: @background;
+          background: @foreground;
+          
           border-radius: 10px;
           padding: .3rem .9rem;
           margin-top: .01rem;
         }
-        #match.activatable:first-child { margin-top: 9px; }
-        #match.activatable:last-child { margin-bottom: 1px; }
+
+        #match.activatable:first-child {
+           margin-top: 9px;
+        }
+
+        #match.activatable:last-child {
+           margin-bottom: 1px;
+        }
 
         #plugin:hover #match.activatable {
-          border-radius: 10px;
           padding: .3rem;
           margin-top: .01rem;
           margin-bottom: 0;
         }
-
 
         #match:selected {
           color: @theme_selected_fg_color;

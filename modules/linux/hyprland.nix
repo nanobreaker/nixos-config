@@ -54,13 +54,13 @@
           border_size = 1;
 
           "col.active_border" = "rgb(818181)";
-          "col.inactive_border" = "rgb(000000)";
+          "col.inactive_border" = "rgb(0a0c10)";
 
           resize_on_border = true;
         };
 
         decoration = {
-          rounding = 4;
+          rounding = 0;
           rounding_power = 4;
 
           dim_inactive = true;
@@ -90,12 +90,17 @@
           "SUPER, E, exec, pcmanfm"
           "SUPER, V, togglefloating,"
           "SUPER, D, exec, pkill anyrun || anyrun"
-          "SUPER, P, pseudo, # dwindle"
+          "SUPER, P, exec, hyprpicker"
           "SUPER, J, togglesplit, # dwindle"
+
           "SUPER, return, exec, ghostty"
+
           "SUPER SHIFT, Q, killactive,"
           "SUPER SHIFT, C, exec, pkill waybar && hyprctl dispatch exec waybar"
-          "SUPER SHIFT, S, exec, grimblast copy area"
+
+          "SUPER, S, exec, grimblast copy area"
+          "SUPER SHIFT, S, exec, grimblast copy output"
+
           "SUPER SHIFT, L, exec, hyprlock"
 
           "SUPER, left, movefocus, l"

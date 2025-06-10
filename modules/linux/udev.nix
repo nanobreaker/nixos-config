@@ -1,8 +1,11 @@
 { config, pkgs, ... }: {
   services.udev.enable = true;
   services.udev.extraRules = ''
-        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", ATTRS{manufacturer}=="Flipper Devices Inc.", TAG+="uaccess"
-        ACTION!="add|change", GOTO="probe_rs_rules_end"
+    # qFlipper configuration
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", ATTRS{manufacturer}=="Flipper Devices Inc.", TAG+="uaccess"
+
+    # probe-rs configuration
+    ACTION!="add|change", GOTO="probe_rs_rules_end"
 
     SUBSYSTEM=="gpio", MODE="0660", TAG+="uaccess"
 
