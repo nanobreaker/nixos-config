@@ -19,12 +19,14 @@
     ../../modules/linux/hypridle.nix
     ../../modules/linux/hyprlock.nix
     ../../modules/linux/hyprpaper.nix
+    # ../../modules/linux/waybar.nix
+    # ../../modules/linux/ironbar.nix
+    ../../modules/linux/ashell.nix
     ../../modules/linux/localisation.nix
     ../../modules/linux/networking.nix
     ../../modules/linux/pipewire.nix
     ../../modules/linux/time.nix
     ../../modules/linux/udev.nix
-    ../../modules/linux/waybar.nix
     ../../modules/linux/xserver.nix
   ];
 
