@@ -18,14 +18,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ironbar = {
-      url = "github:JakeStanger/ironbar";
+    stylix = {
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ashell = {
-      url = "github:MalpenZibo/ashell";
-      inputs.nixpkgs.follows = "nixpkgs";
+    niri-unstable.url = "github:YaLTer/niri";
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.niri-unstable.follows = "niri-unstable";
     };
 
     anyrun = {
@@ -36,6 +37,11 @@
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    uwu-colors = {
+      url = "github:q60/uwu_colors";
+      inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
     roc.url = "github:roc-lang/roc";
@@ -51,7 +57,7 @@
       };
       toolchain = pkgs.fenix.fromToolchainFile {
         file = ./rust-toolchain.toml;
-        sha256 = "sha256-tJJr8oqX3YD+ohhPK7jlt/7kvKBnBqJVjYtoFr520d4=";
+        sha256 = "sha256-KAfZkFntAfbkkdx3RqrdwWrHoXoq5m8mVO23eNDa+C0=";
       };
     in {
       devShells.${system}.default =
@@ -62,8 +68,9 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
           modules = [
-            ./hosts/x86_64-nixos/configuration.nix
             { nixpkgs.overlays = [ fenix.overlays.default ]; }
+            inputs.stylix.nixosModules.stylix
+            ./hosts/x86_64-nixos/configuration.nix
           ];
         };
       };
@@ -72,7 +79,11 @@
         darwin = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/aarch64-darwin/configuration.nix ];
+          modules = [
+            { nixpkgs.overlays = [ fenix.overlays.default ]; }
+            inputs.stylix.darwinModules.stylix
+            ./hosts/aarch64-darwin/configuration.nix
+          ];
         };
       };
 

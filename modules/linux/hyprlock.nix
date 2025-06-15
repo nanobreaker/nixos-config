@@ -18,7 +18,6 @@
         };
 
         background = {
-          path = "/home/nanobreaker/.config/dotfiles/assets/wallpaper.jpeg";
           blur_passes = 0;
           blur_size = 2;
           noise = 0;
@@ -31,7 +30,7 @@
         input-field = {
           monitor = "DP-3";
 
-          size = "300, 30";
+          size = "170, 30";
           position = "0, -470";
           halign = "center";
           valign = "center";
@@ -43,11 +42,11 @@
           dots_center = true;
           dots_rounding = -1;
 
-          outer_color = "rgba(242, 243, 244, 0)";
-          inner_color = "rgba(242, 243, 244, 0)";
-          font_color = "rgba(242, 243, 244, 1)";
-          check_color = "rgba(204, 136, 34, 0)";
-          fail_color = "rgba(204, 34, 34, 0)";
+          # outer_color = "rgba(242, 243, 244, 0)";
+          # inner_color = "rgba(242, 243, 244, 0)";
+          # font_color = "rgba(242, 243, 244, 1)";
+          # check_color = "rgba(204, 136, 34, 0)";
+          # fail_color = "rgba(204, 34, 34, 0)";
           fail_text = "$FAIL <b>($ATTEMPTS)</b>";
           fail_transition = 300;
           capslock_color = -1;
@@ -69,7 +68,7 @@
 
           path = "/home/nanobreaker/.config/dotfiles/assets/avatar.jpg";
 
-          border_color = "0xffdddddd";
+          # border_color = "0xffdddddd";
           border_size = "0";
           size = "90";
           rounding = "-1";
@@ -84,7 +83,7 @@
             valign = "center";
 
             text = ''cmd[update:1000] echo "$(date +"%A, %B %d")"'';
-            color = "rgba(242, 243, 244, 1)";
+            # color = "rgba(242, 243, 244, 1)";
 
             font_size = 20;
             font_family = "JetBrainsMono Nerd Font Bold";
@@ -95,7 +94,7 @@
             valign = "center";
 
             text = ''cmd[update:1000] echo "$(date +"%k:%M")"'';
-            color = "rgba(242, 243, 244, 1)";
+            # color = "rgba(242, 243, 244, 1)";
 
             font_size = 93;
             font_family = "JetBrainsMono Nerd Font Bold";
@@ -112,7 +111,7 @@
             font_size = 13;
             font_family = "JetBrainsMono Nerd Font Bold";
 
-            color = "rgba(242, 243, 244, 1)";
+            # color = "rgba(242, 243, 244, 1)";
           }
         ];
       };

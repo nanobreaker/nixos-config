@@ -15,6 +15,8 @@
         cursor-style-blink = false;
 
         mouse-hide-while-typing = true;
+
+        gtk-titlebar = false;
       };
     };
   }];

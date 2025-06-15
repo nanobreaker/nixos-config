@@ -1,61 +1,61 @@
-{ config, lib, pkgs, ... }: {
-  environment = {
-    variables.EDITOR = "hx";
-    shellAliases.x = "hx";
-  };
-
-  environment.systemPackages = with pkgs; [
-    vscode-langservers-extracted
-    markdown-oxide
-    nixfmt-rfc-style
-    nil
-    rust-analyzer-nightly
-    lldb
-    yaml-language-server
-    zls
-    deno
-    jdt-language-server
-  ];
+{ inputs, config, lib, pkgs, ... }: {
+  environment = { shellAliases.x = "hx"; };
 
   home-manager.sharedModules = [{
 
     programs.helix = {
       enable = true;
+      defaultEditor = true;
 
-      settings.theme = "github_dark_high_contrast";
+      extraPackages = [
+        inputs.uwu-colors.packages.${pkgs.system}.default
+        pkgs.vscode-langservers-extracted
+        pkgs.markdown-oxide
+        pkgs.nixfmt-rfc-style
+        pkgs.nil
+        pkgs.rust-analyzer-nightly
+        pkgs.lldb
+        pkgs.yaml-language-server
+        pkgs.zls
+        pkgs.deno
+        pkgs.jdt-language-server
+      ];
 
-      settings.editor = {
-        auto-format = true;
-        auto-completion = true;
-        bufferline = "never";
-        color-modes = false;
-        cursorline = true;
-        file-picker.hidden = false;
-        idle-timeout = 0;
-        line-number = "relative";
-        text-width = 100;
-      };
+      settings = {
+        theme = lib.mkForce "stylix-custom";
+        editor = {
+          auto-format = true;
+          auto-completion = true;
+          bufferline = "never";
+          color-modes = false;
+          cursorline = true;
+          file-picker.hidden = false;
+          idle-timeout = 0;
+          line-number = "relative";
+          text-width = 100;
 
-      settings.editor.cursor-shape = {
-        insert = "bar";
-        normal = "block";
-        select = "underline";
-      };
+          cursor-shape = {
+            insert = "bar";
+            normal = "block";
+            select = "underline";
+          };
 
-      settings.editor.statusline.mode = {
-        insert = "INSERT";
-        normal = "NORMAL";
-        select = "SELECT";
-      };
+          statusline.mode = {
+            insert = "INSERT";
+            normal = "NORMAL";
+            select = "SELECT";
+          };
 
-      settings.editor.indent-guides = {
-        character = "▏";
-        render = false;
-      };
+          indent-guides = {
+            character = "▏";
+            render = false;
+          };
 
-      settings.editor.whitespace = {
-        characters.tab = "·";
-        render.tab = "all";
+          whitespace = {
+            characters.tab = "·";
+            render.tab = "all";
+          };
+        };
       };
 
       languages = {
@@ -68,6 +68,7 @@
             };
           };
           roc-ls = { command = "roc_language_server"; };
+          uwu-colors = { command = "uwu_colors"; };
         };
 
         language = [
@@ -115,6 +116,7 @@
             name = "nix";
             auto-format = true;
             formatter.command = "nixfmt";
+            language-servers = [ "nil" "uwu-colors" ];
           }
           {
             name = "roc";
@@ -142,6 +144,14 @@
             rev = "0b1afe88161cbd81f5ddea1bb4fa786314ed49a7";
           };
         }];
+      };
+
+      themes = {
+        stylix-custom = {
+          inherits = "stylix";
+
+          "ui.linenr" = "#${config.lib.stylix.colors.base09}";
+        };
       };
     };
   }];

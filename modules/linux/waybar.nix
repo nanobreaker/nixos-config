@@ -1,4 +1,15 @@
-{ config, lib, ... }: {
+{ pkgs, ... }: {
+
+  environment.systemPackages = [ pkgs.upower pkgs.bluez ];
+
+  services.upower = { enable = true; };
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+    package = pkgs.bluez;
+  };
+
   home-manager.sharedModules = [{
     programs.waybar = {
       enable = true;
@@ -6,7 +17,7 @@
       settings = [{
         layer = "top";
         position = "top";
-        height = 18;
+        height = 22;
         spacing = 5;
 
         modules-left = [ "hyprland/workspaces" ];
@@ -19,16 +30,6 @@
           "hyprland/language"
           "clock"
         ];
-
-        "hyprland/workspaces" = {
-          on-click = "activate";
-          sort-by-number = true;
-        };
-
-        "hyprland/window" = {
-          format = "{class}";
-          max-length = 40;
-        };
 
         "tray" = { spacing = 10; };
 
@@ -59,8 +60,6 @@
           "format-disconnected" = "Disconnected ⚠ {ifname}";
           "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
-
-        "hyprland/language" = { "format" = "{short}"; };
 
         "pulseaudio" = {
           "scroll-step" = 5;

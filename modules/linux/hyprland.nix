@@ -22,7 +22,10 @@
 
   home-manager.sharedModules = [{
 
-    wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland = let
+      rgb = color: "rgb(${color})";
+      rgba = color: alpha: "rgba(${color}${alpha})";
+    in {
       enable = true;
 
       systemd = {
@@ -51,11 +54,10 @@
           gaps_in = 0;
           gaps_out = 0;
 
+          "col.inactive_border" =
+            lib.mkForce "rgb(${config.lib.stylix.colors.base00})";
+
           border_size = 1;
-
-          "col.active_border" = "rgb(818181)";
-          "col.inactive_border" = "rgb(0a0c10)";
-
           resize_on_border = true;
         };
 
@@ -89,9 +91,8 @@
           "SUPER, M, exit,"
           "SUPER, E, exec, pcmanfm"
           "SUPER, V, togglefloating,"
-          "SUPER, D, exec, pkill anyrun || anyrun"
+          "SUPER, D, exec, pkill fuzzel; fuzzel"
           "SUPER, P, exec, hyprpicker"
-          "SUPER, J, togglesplit, # dwindle"
 
           "SUPER, return, exec, ghostty"
 
