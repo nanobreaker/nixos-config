@@ -18,6 +18,11 @@
     wl-clipboard
   ];
 
+  environment.variables = {
+    XDG_SCREENSHOTS_DIR = "~/Screenshots";
+    XDG_PICTURES_DIR = "~/Pictures";
+  };
+
   programs.hyprland.enable = true;
 
   home-manager.sharedModules = [{
@@ -31,6 +36,7 @@
       systemd = {
         enable = true;
         enableXdgAutostart = true;
+        variables = [ "--all" ];
       };
 
       xwayland = { enable = true; };
@@ -56,6 +62,8 @@
 
           "col.inactive_border" =
             lib.mkForce "rgb(${config.lib.stylix.colors.base00})";
+
+          "col.active_border" = lib.mkForce "rgb(414042)";
 
           border_size = 1;
           resize_on_border = true;
@@ -97,9 +105,9 @@
           "SUPER, return, exec, ghostty"
 
           "SUPER SHIFT, Q, killactive,"
-          "SUPER SHIFT, C, exec, pkill waybar && hyprctl dispatch exec waybar"
+          "SUPER SHIFT, C, exec, pkill waybar; hyprctl dispatch exec waybar"
 
-          "SUPER, S, exec, grimblast copy area"
+          "SUPER, S, exec, grimblast copy area -"
           "SUPER SHIFT, S, exec, grimblast copy output"
 
           "SUPER SHIFT, L, exec, hyprlock"

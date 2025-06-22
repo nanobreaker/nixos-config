@@ -1,11 +1,14 @@
 { config, inputs, pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
+    uutils-coreutils-noprefix
     clang_16
     clang-tools_16
     nil
     nixd
     nixfmt-classic
+    p7zip
+    pstree
     pcmanfm
     pavucontrol
     obsidian
@@ -15,5 +18,8 @@
     discord
     telegram-desktop
     jetbrains.idea-ultimate
+    zed-editor
+    gimp3
+    neofetch
   ];
 }

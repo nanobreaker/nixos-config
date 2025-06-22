@@ -56,6 +56,12 @@
             render.tab = "all";
           };
         };
+
+        keys.normal = {
+          C-c = ":clipboard-yank";
+          C-v = ":clipboard-paste-after";
+          "C-/" = "toggle_comments";
+        };
       };
 
       languages = {
@@ -69,6 +75,7 @@
           };
           roc-ls = { command = "roc_language_server"; };
           uwu-colors = { command = "uwu_colors"; };
+          jdtls = { command = "jdtls"; };
         };
 
         language = [
@@ -79,6 +86,7 @@
           {
             name = "java";
             auto-format = true;
+            language-servers = [ "jdtls" "uwu-colors" ];
           }
           {
             name = "html";

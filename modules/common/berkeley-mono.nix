@@ -18,7 +18,7 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    install -Dm644 BerkeleyMonoNerdFont-Regular.otf -t $out/share/fonts
+    install -Dm644 berkeley-mono/*.otf -t $out/share/fonts
 
     runHook postInstall
   '';

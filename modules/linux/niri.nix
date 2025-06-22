@@ -50,7 +50,7 @@
           workspace-auto-back-and-forth = true;
         };
         screenshot-path =
-          "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
+          "~/Pictures/Screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png";
         outputs = {
           "eDP-1" = {
             scale = 1.0;

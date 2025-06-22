@@ -9,8 +9,11 @@
     ../../modules/common/helix.nix
     ../../modules/common/btop.nix
     ../../modules/common/nushell.nix
+    ../../modules/common/java.nix
     ../../modules/common/rust.nix
     ../../modules/common/roc.nix
+    ../../modules/common/yazi.nix
+    ../../modules/common/starship.nix
     ../../modules/linux/nh.nix
     ../../modules/linux/packages.nix
     ../../modules/linux/fuzzel.nix

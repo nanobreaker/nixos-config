@@ -31,6 +31,19 @@
           "clock"
         ];
 
+        "hyprland/workspaces" = {
+          "persistent-workspaces" = {
+            "DP-3" = [ "1" "2" "3" "4" ];
+            "eDP-1" = [ "5" "6" "7" "8" "9" ];
+          };
+        };
+
+        "hyprland/language" = {
+          "format-us" = "ENGLISH";
+          "format-en" = "ENGLISH";
+          "format-ru" = "RUSSIAN";
+        };
+
         "tray" = { spacing = 10; };
 
         "clock" = {
@@ -81,8 +94,8 @@
         @define-color background #0a0c10;
 
         * {
-          font-family: JetBrainsMono Nerd Font;
-          font-size: 16px;
+          font-family: Berkeley Mono Bold;
+          font-size: 17px;
         }
 
         #waybar {
@@ -105,8 +118,10 @@
         }
 
         #workspaces button {
+          border-style: solid;
+          border-radius: 0px;
+          margin: 4px 0px;
           padding: 0px 4px;
-          margin: 5px 0px;
           color: @foreground;
         }
 

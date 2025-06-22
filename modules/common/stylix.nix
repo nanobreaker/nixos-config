@@ -11,18 +11,9 @@
     };
     image = ../../assets/wallpaper.jpeg;
     fonts = {
-      serif = {
-        name = "JetBrainsMono Nerd Font";
-        package = pkgs.nerd-fonts.jetbrains-mono;
-      };
-      sansSerif = {
-        name = "JetBrainsMono Nerd Font";
-        package = pkgs.nerd-fonts.jetbrains-mono;
-      };
-      monospace = {
-        name = "JetBrainsMono Nerd Font";
-        package = pkgs.nerd-fonts.jetbrains-mono;
-      };
+      serif = { name = "Berkeley Mono"; };
+      sansSerif = { name = "Berkeley Mono"; };
+      monospace = { name = "Berkeley Mono"; };
       emoji = {
         name = "Symbols Nerd Font";
         package = pkgs.nerd-fonts.symbols-only;
@@ -41,7 +32,7 @@
       base09 = "#ffb757"; # integers, booleans, constants, xml attributes
       base0A = "#ffb757"; # classes, markup bold, search text background
       base0B = "#addcff"; # strings, inherited class, markup code, diff inserted
-      base0C = "#00c192"; # support, regular, escape characters
+      base0C = "#ffb757"; # support, regular, escape characters
       base0D = "#ddb7ff"; # functions, methods
       base0E = "#ff9492"; # keywords, storage, selector
       base0F = "#3D2F00"; # deprecated, opening/closing tags

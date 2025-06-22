@@ -9,7 +9,7 @@
 
         terminal = "ghostty -e";
         horizonal-pad = 4;
-        font = lib.mkForce "JetBrainsMono Nerd Font:size=19";
+        font = lib.mkForce "Berkeley Mono:size=19";
         tabs = 4;
       };
 
