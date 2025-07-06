@@ -7,8 +7,7 @@
     settings = {
       default_session = {
         user = "nanobreaker";
-        # command = "${pkgs.niri}/bin/niri-session";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland";
+        command = "${pkgs.niri}/bin/niri-session";
       };
     };
   };

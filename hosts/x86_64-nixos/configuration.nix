@@ -17,11 +17,10 @@
     ../../modules/linux/nh.nix
     ../../modules/linux/packages.nix
     ../../modules/linux/fuzzel.nix
-    ../../modules/linux/anyrun.nix
     ../../modules/linux/boot.nix
     ../../modules/linux/gtk.nix
     ../../modules/linux/tuigreet.nix
-    ../../modules/linux/hyprland.nix
+    ../../modules/linux/niri.nix
     ../../modules/linux/hypridle.nix
     ../../modules/linux/hyprlock.nix
     ../../modules/linux/hyprpaper.nix

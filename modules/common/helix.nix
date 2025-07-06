@@ -8,7 +8,6 @@
       defaultEditor = true;
 
       extraPackages = [
-        inputs.uwu-colors.packages.${pkgs.system}.default
         pkgs.vscode-langservers-extracted
         pkgs.markdown-oxide
         pkgs.nixfmt-rfc-style
@@ -74,7 +73,6 @@
             };
           };
           roc-ls = { command = "roc_language_server"; };
-          uwu-colors = { command = "uwu_colors"; };
           jdtls = { command = "jdtls"; };
         };
 
@@ -86,7 +84,7 @@
           {
             name = "java";
             auto-format = true;
-            language-servers = [ "jdtls" "uwu-colors" ];
+            language-servers = [ "jdtls" ];
           }
           {
             name = "html";
@@ -124,7 +122,7 @@
             name = "nix";
             auto-format = true;
             formatter.command = "nixfmt";
-            language-servers = [ "nil" "uwu-colors" ];
+            language-servers = [ "nil" ];
           }
           {
             name = "roc";

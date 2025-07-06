@@ -1,9 +1,7 @@
 {
-  description = "nanobreaker's config";
+  description = "nanobreaker's personalized nixos configuration";
 
-  nixConfig = {
-    experimental-features = [ "flakes" "nix-command" "pipe-operators" ];
-  };
+  nixConfig = { experimental-features = [ "flakes" "nix-command" ]; };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -23,25 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri-unstable.url = "github:YaLTer/niri";
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.niri-unstable.follows = "niri-unstable";
-    };
-
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    niri = { url = "github:sodiboo/niri-flake"; };
 
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    uwu-colors = {
-      url = "github:q60/uwu_colors";
-      inputs = { nixpkgs.follows = "nixpkgs"; };
     };
 
     roc.url = "github:roc-lang/roc";

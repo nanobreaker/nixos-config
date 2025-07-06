@@ -6,7 +6,8 @@ let
     java = pkgs.jetbrains.jdk;
   });
 in {
-  environment.systemPackages = [ jdk maven gradle ];
+  environment.systemPackages =
+    [ jdk maven gradle pkgs.graalvmPackages.graalvm-ce ];
 
   environment.variables = { JAVA_HOME = "${jdk}"; };
 }

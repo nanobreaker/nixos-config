@@ -21,5 +21,7 @@
     zed-editor
     gimp3
     neofetch
+    rpi-imager
+    gdlauncher-carbon
   ];
 }

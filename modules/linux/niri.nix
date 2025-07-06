@@ -10,7 +10,7 @@
     wf-recorder
     wl-clipboard
     gnome-control-center
-    xwayland-satellite
+    xwayland-satellite-unstable
   ];
 
   programs.xwayland.enable = true;
@@ -22,15 +22,7 @@
       package = pkgs.niri-unstable;
       settings = {
         prefer-no-csd = true;
-        environment = {
-          CLUTTER_BACKEND = "wayland";
-          GDK_BACKEND = "wayland,x11";
-          MOZ_ENABLE_WAYLAND = "1";
-          NIXOS_OZONE_WL = "1";
-          QT_QPA_PLATFORM = "wayland;xcb";
-          QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-          SDL_VIDEODRIVER = "wayland";
-        };
+        environment = { NIXOS_OZONE_WL = "1"; };
         input = {
           keyboard.xkb.layout = "us,ru";
           keyboard.xkb.options = "grp:alt_shift_toggle";
@@ -131,7 +123,7 @@
           clip-to-geometry = true;
         }];
         binds = {
-          "Mod+D".action.spawn = "anyrun";
+          "Mod+D".action.spawn = "fuzzel";
           "Mod+Return".action.spawn = "ghostty";
           "Mod+Q".action.close-window = { };
           "Mod+S".action.switch-preset-column-width = { };
