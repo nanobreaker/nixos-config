@@ -18,12 +18,8 @@
     ../../modules/linux/packages.nix
     ../../modules/linux/fuzzel.nix
     ../../modules/linux/boot.nix
-    ../../modules/linux/gtk.nix
     ../../modules/linux/tuigreet.nix
     ../../modules/linux/niri.nix
-    ../../modules/linux/hypridle.nix
-    ../../modules/linux/hyprlock.nix
-    ../../modules/linux/hyprpaper.nix
     ../../modules/linux/waybar.nix
     ../../modules/linux/localisation.nix
     ../../modules/linux/networking.nix

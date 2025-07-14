@@ -20,28 +20,22 @@
         height = 22;
         spacing = 5;
 
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "hyprland/window" ];
-        modules-right = [
-          "tray"
-          "pulseaudio"
-          "battery"
-          "network"
-          "hyprland/language"
-          "clock"
-        ];
+        modules-left = [ "niri/workspaces" ];
+        modules-center = [ "niri/window" ];
+        modules-right =
+          [ "tray" "pulseaudio" "battery" "network" "niri/language" "clock" ];
 
-        "hyprland/workspaces" = {
+        "niri/workspaces" = {
           "persistent-workspaces" = {
             "DP-3" = [ "1" "2" "3" "4" ];
             "eDP-1" = [ "5" "6" "7" "8" "9" ];
           };
         };
 
-        "hyprland/language" = {
-          "format-us" = "ENGLISH";
-          "format-en" = "ENGLISH";
-          "format-ru" = "RUSSIAN";
+        "niri/language" = {
+          "format-us" = "EN";
+          "format-en" = "EN";
+          "format-ru" = "RU";
         };
 
         "tray" = { spacing = 10; };
@@ -114,14 +108,13 @@
         }
 
         #workspaces {
-          padding: 0px 4px;
+          background-color: transparent;
+          padding: 0.3em;
         }
 
         #workspaces button {
           border-style: solid;
-          border-radius: 0px;
-          margin: 4px 0px;
-          padding: 0px 4px;
+          border-radius: 4px;
           color: @foreground;
         }
 

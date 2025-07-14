@@ -2,10 +2,8 @@
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
   environment.systemPackages = with pkgs; [
-    kitty
-    hyprcursor
-    hyprpicker
-    hyprpaper
+    wayidle
+    waylock
     grimblast
     wf-recorder
     wl-clipboard
@@ -38,7 +36,7 @@
             accel-profile = "adaptive";
           };
           focus-follows-mouse.enable = true;
-          warp-mouse-to-focus = true;
+          warp-mouse-to-focus.enable = true;
           workspace-auto-back-and-forth = true;
         };
         screenshot-path =
@@ -79,7 +77,7 @@
             inactive.color = "#0a0c10";
           };
           border = {
-            enable = true;
+            enable = false;
             width = 1;
             active.color = "#818181";
             inactive.color = "#0a0c10";

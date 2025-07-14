@@ -156,7 +156,7 @@
         stylix-custom = {
           inherits = "stylix";
 
-          "ui.linenr" = "#${config.lib.stylix.colors.base09}";
+          "ui.linenr" = "#ffb757";
         };
       };
     };
