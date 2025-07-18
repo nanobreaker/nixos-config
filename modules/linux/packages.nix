@@ -23,5 +23,6 @@
     neofetch
     rpi-imager
     gdlauncher-carbon
+    wpaperd
   ];
 }

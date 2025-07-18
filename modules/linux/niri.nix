@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     wayidle
     waylock
+    swww
     grimblast
     wf-recorder
     wl-clipboard
@@ -19,6 +20,11 @@
       enable = true;
       package = pkgs.niri-unstable;
       settings = {
+        spawn-at-startup = [
+          { command = [ "ironbar" ]; }
+          { command = [ "swww-daemon" ]; }
+          { command = [ "swww" "img" "../../assets/wallpaper.jpeg" ]; }
+        ];
         prefer-no-csd = true;
         environment = { NIXOS_OZONE_WL = "1"; };
         input = {
@@ -70,28 +76,34 @@
           hide-when-typing = true;
         };
         layout = {
+
           focus-ring = {
-            enable = false;
+            enable = true;
             width = 1;
             active.color = "#818181";
             inactive.color = "#0a0c10";
           };
+
           border = {
-            enable = false;
+            enable = true;
             width = 1;
             active.color = "#818181";
             inactive.color = "#0a0c10";
           };
+
           shadow = { enable = false; };
+
           preset-column-widths = [
             { proportion = 0.25; }
             { proportion = 0.5; }
             { proportion = 0.75; }
             { proportion = 1.0; }
           ];
+
           default-column-width = { proportion = 0.5; };
 
-          gaps = 0;
+          gaps = 9;
+
           struts = {
             left = 0;
             right = 0;
@@ -110,16 +122,18 @@
             length.total-proportion = 0.1;
           };
         };
+
         window-rules = [{
           draw-border-with-background = false;
           geometry-corner-radius = {
-            top-left = 0.0;
-            top-right = 0.0;
-            bottom-left = 0.0;
-            bottom-right = 0.0;
+            top-left = 4.0;
+            top-right = 4.0;
+            bottom-left = 4.0;
+            bottom-right = 4.0;
           };
           clip-to-geometry = true;
         }];
+
         binds = {
           "Mod+D".action.spawn = "fuzzel";
           "Mod+Return".action.spawn = "ghostty";

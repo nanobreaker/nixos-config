@@ -20,7 +20,8 @@
     ../../modules/linux/boot.nix
     ../../modules/linux/tuigreet.nix
     ../../modules/linux/niri.nix
-    ../../modules/linux/waybar.nix
+    # ../../modules/linux/waybar.nix
+    ../../modules/linux/ironbar.nix
     ../../modules/linux/localisation.nix
     ../../modules/linux/networking.nix
     ../../modules/linux/pipewire.nix

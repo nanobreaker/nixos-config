@@ -13,7 +13,6 @@
   home-manager.sharedModules = [{
     programs.waybar = {
       enable = true;
-      systemd = { enable = true; };
       settings = [{
         layer = "top";
         position = "top";
@@ -26,9 +25,10 @@
           [ "tray" "pulseaudio" "battery" "network" "niri/language" "clock" ];
 
         "niri/workspaces" = {
-          "persistent-workspaces" = {
-            "DP-3" = [ "1" "2" "3" "4" ];
-            "eDP-1" = [ "5" "6" "7" "8" "9" ];
+          format = "<span size='larger'>{icon}</span>";
+          format-icons = {
+            "active" = "";
+            "default" = "";
           };
         };
 
@@ -38,7 +38,10 @@
           "format-ru" = "RU";
         };
 
-        "tray" = { spacing = 10; };
+        "tray" = {
+          spacing = 16;
+          icon-size = 16;
+        };
 
         "clock" = {
           format = "{:%a %B %d %H:%M}";
@@ -89,136 +92,30 @@
 
         * {
           font-family: Berkeley Mono Bold;
-          font-size: 17px;
+          font-size: 16px;
+          min-height: 0;
         }
 
         #waybar {
           color: @foreground;
           background-color: @background;
-          border: none;
-          box-shadow: none;
-        }
-
-        tooltip {
-          background: @background;
-        }
-
-        tooltip label {
-          color: white;
         }
 
         #workspaces {
           background-color: transparent;
-          padding: 0.3em;
         }
 
         #workspaces button {
-          border-style: solid;
-          border-radius: 4px;
-          color: @foreground;
-        }
-
-        #workspaces button.focused {
-          color: @background;
-          background-color: @foreground;
-        }
-
-        #workspaces button.active {
-          color: @background;
-          background-color: @foreground;
-        }
-
-        .modules-center {
-          
-        }
-
-        #window {
-          padding: 0px 4px;
-        }
-
-        .modules-right {
-          font-size: 18px;
+          padding-left: 0.7em;
         }
 
         #tray,
-        #pulseaudio {
-          padding: 0px 5px;
-        }
-
+        #pulseaudio,
         #battery,
-        #network {
-          padding: 0px 7px;
-        }
-
-        #language {
-          padding: 0px 5px;
-          margin: 7px 0px;
-          color: @background;
-          background-color: @foreground;
-          border-radius: 4px;
-        }
-
+        #network,
+        #language, 
         #clock {
-          padding: 0px 4px;
-        }
-
-        #battery.charging,
-        #battery.plugged {
-          color: #ffffff;
-          background-color: #26a65b;
-        }
-
-        @keyframes blink {
-          to {
-            background-color: #ffffff;
-            color: #000000;
-          }
-        }
-
-        #battery.warning:not(.charging) {
-          background-color: #f53c3c;
-          color: #ffffff;
-          animation-name: blink;
-          animation-duration: 0.5s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-        }
-
-        #battery.critical:not(.charging) {
-          background-color: #f53c3c;
-          color: #ffffff;
-          animation-name: blink;
-          animation-duration: 0.5s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-        }
-
-        label:focus {
-          background-color: #000000;
-        }
-
-        #network.disconnected {
-          background-color: #f53c3c;
-        }
-
-        #temperature.critical {
-          background-color: #eb4d4b;
-        }
-
-        #idle_inhibitor.activated {
-          background-color: #ecf0f1;
-          color: #2d3436;
-        }
-
-        #tray>.passive {
-          -gtk-icon-effect: dim;
-        }
-
-        #tray>.needs-attention {
-          -gtk-icon-effect: highlight;
-          background-color: #eb4d4b;
+          padding-right: 1em;
         }
       '';
     };

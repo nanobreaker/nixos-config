@@ -31,7 +31,7 @@
           file-picker.hidden = false;
           idle-timeout = 0;
           line-number = "relative";
-          text-width = 100;
+          text-width = 140;
 
           cursor-shape = {
             insert = "bar";
