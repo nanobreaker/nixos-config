@@ -5,9 +5,9 @@
     wayidle
     waylock
     swww
-    grimblast
-    wf-recorder
-    wl-clipboard
+    slurp
+    wl-screenrec
+    wl-clipboard-rs
     gnome-control-center
     xwayland-satellite-unstable
   ];
@@ -165,6 +165,10 @@
 
           "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = { };
           "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = { };
+
+          "Mod+Home".action.screenshot = { };
+          "Mod+Shift+Home".action.screenshot-screen = { };
+          "Mod+Shift+Ctrl+Home".action.spawn = "wl-screenrec -g '$(slurp)'";
         };
       };
     };

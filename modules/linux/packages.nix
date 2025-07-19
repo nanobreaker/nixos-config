@@ -24,5 +24,9 @@
     rpi-imager
     gdlauncher-carbon
     wpaperd
+    ripgrep
+    scooter
+    dua
+    systemctl-tui
   ];
 }

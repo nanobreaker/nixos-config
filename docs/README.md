@@ -1,17 +1,21 @@
-![desktop](screenshot_01.png)
+# Preview
 
-# Description 
+![preview_0](screenshot-0.png)
+![preview_1](screenshot-1.png)
+
+# Overview 
 
 This repo represents uniform structure that describes software/hardware configuration files based
 on nix package manager, flakes and home-manager. 
 It unlocks ability to reproduce my personalized setup on any linux/darwin based host without any time-consuming hassle.
 
 ## Motivation
+
 Setting up your favorite environment on new machine is a time-consuming task,
-but to keep them all in sync is even more time-consuming,
-eventually I got tired of doing again and again until I found NixOS, and it's declarative ecosystem.
+furthermore if you want to keep them all in sync between machines then it's even more time-consuming,
+eventually I got tired of configuring and installing everything again until I found NixOS, and it's declarative ecosystem.
 It's a big pleasure to be able to define the whole system configuration
-such as hardware and software in one repo.
+such as hardware and software in just one repo.
 
 ## Software
 
@@ -21,24 +25,35 @@ Also, I'm huge fan of rust written apps I and believe there is no better alterna
 
 ### TUI
 
-| name     | description            | language |
-|----------|------------------------|----------|
-| tuigreet | console greeter        | rust     |
-| ghostty  | terminal emulator      | zig      |
-| nushell  | shell                  | rust     |
-| starship | cross-shell prompt     | rust     |
-| btop     | a monitor of resources | c++      |
-| yazi     | terminal file manager  | rust     |
-| p7zip    | file archiver          | rust     |
+| name          | description                  | language |
+|---------------|------------------------------|----------|
+| tuigreet      | console greeter              | rust     |
+| ghostty       | terminal emulator            | zig      |
+| nushell       | shell                        | rust     |
+| starship      | cross-shell prompt           | rust     |
+| btop          | a monitor of resources       | c++      |
+| yazi          | terminal file manager        | rust     |
+| p7zip         | file archiver                | rust     |
+| ripgrep       | search tool                  | rust     |
+| scooter       | interactive find-and-replace | rust     |
+| dua-cli       | disk usage analyzer          | rust     |
+| systemctl-tui | systemd services             | rust     |
+| gitui         | git tui                      | rust     |
 
 ### GUI
 
-| name    | description                               | language |
-|---------|-------------------------------------------|----------|
-| niri    | scrollable-tiling wayland compositor      | rust     |
-| ironbar | gtk bar for wayland                       | rust     |
-| fuzzel  | app launcher and fuzzy finder for wayland | c        |
-| pcmanfm | file manager                              | c        |
+| name            | description                               | language |
+|-----------------|-------------------------------------------|----------|
+| niri            | scrollable-tiling wayland compositor      | rust     |
+| ironbar         | gtk bar for wayland                       | rust     |
+| fuzzel          | app launcher and fuzzy finder for wayland | c        |
+| pcmanfm         | file manager                              | c        |
+| swww            | wallpaper daemon                          | rust     |
+| wayidle         | wayland idle timeout listener             | rust     |
+| waylock         | screenlocker                              | zig      |
+| slurp           | region selector for wayland               | c        |
+| wl-screenrec    | screen recording                          | rust     |
+| wl-clipboard-rs | clipboard                                 | rust     |
 
 ### Development
 
@@ -64,20 +79,26 @@ Also, I'm huge fan of rust written apps I and believe there is no better alterna
 
 ## Hardware
 
-For personal use I have dell laptop with nixos, for work I have a macbook pro,
-so this config support darwin targets via nix-darwin.
-
-## Keybinds
-
-Here I will list my keybinds across all the programs, so I can easily look them up later
-and perform some analysis on how create non-intersecting layouts for different programs.
-
+I do have a dell laptop with nixos and macbook pro with macos, so this config supports both linux and darwin targets.
 
 # Prerequisites
-* nix package manager
-* nix-darwing (for darwin)
-* flakes enabled
-* root access
+
+## [nix](https://github.com/DeterminateSystems/nix-installer)
+
+```shell
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+```
+
+## [nix-darwin](https://github.com/nix-darwin/nix-darwin)
+
+```shell
+sudo nix run nix-darwin/master#darwin-rebuild -- switch
+```
+
+## experimental features enabled
+
+* nix-command
+* flakes
 
 # Getting Started
 
@@ -104,6 +125,12 @@ sudo nixos-rebuild switch --flake .#nixos
 sudo darwin-rebuild switch --flake .#darwin
 ```
 
+## Keybinds
+
+Here I will list my keybinds across all the programs, so I can easily look them up later
+and perform some analysis on how create non-intersecting layouts for different programs.
+
 # Licensing
-The code in this project is licensed under MIT license. Check [LICENSE](LICENSE) for further
+
+The code in this project is licensed under MIT license. Check [LICENSE](LICENSE.md) for further
 details.

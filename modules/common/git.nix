@@ -1,6 +1,6 @@
 { self, config, lib, pkgs, ... }: {
 
-  environment.systemPackages = [ pkgs.lazygit ];
+  environment.systemPackages = [ pkgs.gitui ];
 
   home-manager.sharedModules = [{
     programs.git = {
