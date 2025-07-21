@@ -9,6 +9,9 @@ This repo represents uniform structure that describes software/hardware configur
 on nix package manager, flakes and home-manager. 
 It unlocks ability to reproduce my personalized setup on any linux/darwin based host without any time-consuming hassle.
 
+> [!WARNING]
+> WIP. Darwin host configuration is not yet ready.
+
 ## Motivation
 
 Setting up your favorite environment on new machine is a time-consuming task,
@@ -39,6 +42,7 @@ Also, I'm huge fan of rust written apps I and believe there is no better alterna
 | dua-cli       | disk usage analyzer          | rust     |
 | systemctl-tui | systemd services             | rust     |
 | gitui         | git tui                      | rust     |
+| impala        | wifi tui                     | rust     |
 
 ### GUI
 
@@ -70,6 +74,7 @@ Also, I'm huge fan of rust written apps I and believe there is no better alterna
 | stylix           | theming            | nix        |
 | telegram-desktop | messenger          | c++        |
 | discord          | messenger          | javascript |
+| spotify          | music player       | javascript |
 | google-chrome    | browser            | c/c++      |
 | gimp3            | image manipulation | c          |
 | obsidian         | note taking        | javascript |
@@ -99,6 +104,7 @@ sudo nix run nix-darwin/master#darwin-rebuild -- switch
 
 * nix-command
 * flakes
+* pipe-operators
 
 # Getting Started
 

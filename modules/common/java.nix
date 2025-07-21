@@ -2,12 +2,10 @@
 let
   jdk = pkgs.jdk24_headless;
   maven = pkgs.maven.override { jdk_headless = jdk; };
-  gradle = (pkgs.callPackage pkgs.gradle-packages.gradle_8 {
-    java = pkgs.jetbrains.jdk;
-  });
+  jetbrains = pkgs.jetbrains.idea-ultimate.override { jdk = jdk; };
 in {
   environment.systemPackages =
-    [ jdk maven gradle pkgs.graalvmPackages.graalvm-ce ];
+    [ jdk jetbrains maven pkgs.graalvmPackages.graalvm-ce ];
 
   environment.variables = { JAVA_HOME = "${jdk}"; };
 }

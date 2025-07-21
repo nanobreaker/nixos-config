@@ -17,7 +17,6 @@
     gfn-electron
     discord
     telegram-desktop
-    jetbrains.idea-ultimate
     zed-editor
     gimp3
     neofetch
@@ -28,5 +27,6 @@
     scooter
     dua
     systemctl-tui
+    spotify
   ];
 }

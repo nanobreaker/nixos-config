@@ -14,13 +14,13 @@
     ../../modules/common/roc.nix
     ../../modules/common/yazi.nix
     ../../modules/common/starship.nix
+    ../../modules/linux/wifi.nix
     ../../modules/linux/nh.nix
     ../../modules/linux/packages.nix
     ../../modules/linux/fuzzel.nix
     ../../modules/linux/boot.nix
     ../../modules/linux/tuigreet.nix
     ../../modules/linux/niri.nix
-    # ../../modules/linux/waybar.nix
     ../../modules/linux/ironbar.nix
     ../../modules/linux/localisation.nix
     ../../modules/linux/networking.nix

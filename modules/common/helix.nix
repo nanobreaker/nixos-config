@@ -50,9 +50,14 @@
             render = false;
           };
 
-          whitespace = {
-            characters.tab = "·";
-            render.tab = "all";
+          whitespace.render = {
+            tab = "all";
+            space = "all";
+          };
+
+          whitespace.characters = {
+            tab = "·";
+            space = "·";
           };
         };
 
@@ -157,6 +162,7 @@
           inherits = "stylix";
 
           "ui.linenr" = "#ffb757";
+          "ui.virtual.whitespace" = "#231f20";
         };
       };
     };

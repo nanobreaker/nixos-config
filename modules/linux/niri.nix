@@ -45,8 +45,7 @@
           warp-mouse-to-focus.enable = true;
           workspace-auto-back-and-forth = true;
         };
-        screenshot-path =
-          "~/Pictures/Screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png";
+        screenshot-path = "~/Screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png";
         outputs = {
           "eDP-1" = {
             scale = 1.0;
@@ -78,15 +77,15 @@
         layout = {
 
           focus-ring = {
-            enable = true;
-            width = 1;
+            enable = false;
+            width = 0;
             active.color = "#818181";
             inactive.color = "#0a0c10";
           };
 
           border = {
             enable = true;
-            width = 1;
+            width = 2;
             active.color = "#818181";
             inactive.color = "#0a0c10";
           };
