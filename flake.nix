@@ -37,21 +37,8 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, fenix, ... }:
-    let
-      inherit (self) outputs;
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [ fenix.overlays.default ];
-      };
-      toolchain = pkgs.fenix.fromToolchainFile {
-        file = ./rust-toolchain.toml;
-        sha256 = "sha256-KAfZkFntAfbkkdx3RqrdwWrHoXoq5m8mVO23eNDa+C0=";
-      };
+    let inherit (self) outputs;
     in {
-      devShells.${system}.default =
-        pkgs.mkShell { packages = [ toolchain pkgs.probe-rs-tools ]; };
-
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

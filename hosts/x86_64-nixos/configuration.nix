@@ -10,7 +10,7 @@
     ../../modules/common/btop.nix
     ../../modules/common/nushell.nix
     ../../modules/common/java.nix
-    ../../modules/common/rust.nix
+    ../../modules/common/rust/rust.nix
     ../../modules/common/roc.nix
     ../../modules/common/yazi.nix
     ../../modules/common/starship.nix
@@ -42,7 +42,7 @@
     name = "nanobreaker";
     home = "/home/nanobreaker";
     extraGroups =
-      [ "networkmanager" "wheel" "audio" "input" "dialout" "docker" ];
+      [ "networkmanager" "wheel" "audio" "input" "dialout" "docker" "plugdev" ];
     shell = pkgs.nushell;
   };
 
