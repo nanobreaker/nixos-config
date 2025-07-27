@@ -18,6 +18,7 @@
         pkgs.zls
         pkgs.deno
         pkgs.jdt-language-server
+        pkgs.taplo
       ];
 
       settings = {
@@ -121,6 +122,10 @@
           }
           {
             name = "jsonc";
+            auto-format = true;
+          }
+          {
+            name = "toml";
             auto-format = true;
           }
           {

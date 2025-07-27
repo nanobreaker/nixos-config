@@ -5,7 +5,7 @@
     pkgs.probe-rs-tools
     (pkgs.fenix.fromToolchainFile {
       file = ./rust-toolchain.toml;
-      sha256 = "sha256-KAfZkFntAfbkkdx3RqrdwWrHoXoq5m8mVO23eNDa+C0=";
+      sha256 = "sha256-O0LDBSOe/ggTpAS4AyjoRcR/83UOLOzDrzF+D9A8fRo=";
     })
   ];
 }

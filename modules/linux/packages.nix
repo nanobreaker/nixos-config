@@ -17,6 +17,7 @@
     gfn-electron
     discord
     telegram-desktop
+    element-desktop
     zed-editor
     gimp3
     neofetch
