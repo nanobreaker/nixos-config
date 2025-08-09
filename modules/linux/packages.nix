@@ -2,8 +2,7 @@
 
   environment.systemPackages = with pkgs; [
     uutils-coreutils-noprefix
-    clang_16
-    clang-tools_16
+    usbutils
     nil
     nixd
     nixfmt-classic
