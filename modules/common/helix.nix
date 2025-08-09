@@ -1,25 +1,27 @@
 { inputs, config, lib, pkgs, ... }: {
   environment = { shellAliases.x = "hx"; };
 
+  environment.systemPackages = [
+    pkgs.vscode-langservers-extracted
+    pkgs.markdown-oxide
+    pkgs.nixfmt-rfc-style
+    pkgs.nil
+    pkgs.rust-analyzer-nightly
+    pkgs.lldb
+    pkgs.yaml-language-server
+    pkgs.zls
+    pkgs.deno
+    pkgs.jdt-language-server
+    pkgs.taplo
+    pkgs.clang_16
+    pkgs.clang-tools_16
+  ];
+
   home-manager.sharedModules = [{
 
     programs.helix = {
       enable = true;
       defaultEditor = true;
-
-      extraPackages = [
-        pkgs.vscode-langservers-extracted
-        pkgs.markdown-oxide
-        pkgs.nixfmt-rfc-style
-        pkgs.nil
-        pkgs.rust-analyzer-nightly
-        pkgs.lldb
-        pkgs.yaml-language-server
-        pkgs.zls
-        pkgs.deno
-        pkgs.jdt-language-server
-        pkgs.taplo
-      ];
 
       settings = {
         theme = lib.mkForce "stylix-custom";
