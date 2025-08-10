@@ -79,14 +79,14 @@
           focus-ring = {
             enable = false;
             width = 0;
-            active.color = "#818181";
+            active.color = "#d8dadd";
             inactive.color = "#0a0c10";
           };
 
           border = {
             enable = true;
             width = 2;
-            active.color = "#818181";
+            active.color = "#d8dadd";
             inactive.color = "#0a0c10";
           };
 
@@ -151,8 +151,8 @@
 
           "Mod+Left".action.focus-column-left = { };
           "Mod+Right".action.focus-column-right = { };
-          "Mod+Down".action.focus-workspace-down = { };
-          "Mod+Up".action.focus-workspace-up = { };
+          "Mod+Down".action.focus-window-down = { };
+          "Mod+Up".action.focus-window-up = { };
 
           "Mod+Shift+Left".action.move-column-left = { };
           "Mod+Shift+Right".action.move-column-right = { };
@@ -161,6 +161,8 @@
 
           "Mod+Ctrl+Left".action.focus-monitor-left = { };
           "Mod+Ctrl+Right".action.focus-monitor-right = { };
+          "Mod+Ctrl+Up".action.focus-workspace-up = { };
+          "Mod+Ctrl+Down".action.focus-workspace-down = { };
 
           "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = { };
           "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = { };
