@@ -46,6 +46,13 @@
     shell = pkgs.nushell;
   };
 
+  security.pam.loginLimits = [{
+    domain = "*";
+    type = "soft";
+    item = "nofile";
+    value = "8192";
+  }];
+
   home-manager.users.nanobreaker.home = {
     homeDirectory = "/home/nanobreaker";
     stateVersion = "25.05";
