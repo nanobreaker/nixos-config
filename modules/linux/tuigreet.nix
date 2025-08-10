@@ -1,13 +1,13 @@
 { pkgs, ... }: {
 
-  environment.systemPackages = [ pkgs.greetd.tuigreet ];
+  environment.systemPackages = [ pkgs.tuigreet ];
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
         user = "nanobreaker";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri";
       };
     };
   };
